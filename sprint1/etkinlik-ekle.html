@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Etkinlik Ekle</title>
+</head>
+<body>
+  <header>
+    <h1>Kampüs Etkinlikleri</h1>
+    <nav>
+      <a href="index.html">Ana Sayfa</a> | 
+      <a href="etkinlikler.html">Etkinlikler</a> | 
+      <a href="etkinlik-detay.html">Detay</a> | 
+      <a href="etkinlik-ekle.html">Ekle</a> | 
+      <a href="etkinlik-guncelle.html">Güncelle</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Etkinlik Ekle</h1>
+    <form action="#" method="post">
+      <p>
+        <label for="ad">Etkinlik Adı:</label><br>
+        <input type="text" id="ad" name="ad" required>
+      </p>
+      <p>
+        <label for="kategori">Kategori:</label><br>
+        <select id="kategori" name="kategori" required>
+          <option value="">Seçiniz</option>
+          <option value="Seminer">Seminer</option>
+          <option value="Atölye">Atölye</option>
+        </select>
+      </p>
+      <p>
+        <label for="tarih">Tarih / Saat:</label><br>
+        <input type="datetime-local" id="tarih" name="tarih" required>
+      </p>
+      <p>
+        <label for="aciklama">Açıklama:</label><br>
+        <textarea id="aciklama" name="aciklama" rows="4" cols="30" required></textarea>
+      </p>
+      <p>
+        <button type="submit">Kaydet</button>
+      </p>
+    </form>
+  </main>
+  <footer>
+    <p>Ad Soyad - Öğrenci No - 2026</p>
+  </footer>
+</body>
+</html>
