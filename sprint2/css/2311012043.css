@@ -1,0 +1,88 @@
+/* Ad Soyad - 2311012043 */
+:root {
+  --no: 2311012043;
+  --ton: calc(var(--no) % 360); /* 83 tonu */
+  --renk-ana: hsl(83 65% 38%);
+  --renk-zemin: hsl(83 30% 97%);
+  --font: "Trebuchet MS", sans-serif; /* Son hane 3 için */
+  --bosluk-m: 1rem;
+  --kose: 8px;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--renk-zemin);
+  margin: 0;
+  padding: 0;
+}
+
+/* Başlık ve Menü */
+header {
+  background-color: var(--renk-ana);
+  color: white;
+  padding: var(--bosluk-m);
+}
+
+header a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+}
+
+/* Kart Yapısı ve Izgara (Grid) */
+section.etkinlikler {
+  display: grid;
+  grid-template-columns: 1fr; /* Telefonda tek sütun */
+  gap: var(--bosluk-m);
+  padding: var(--bosluk-m);
+}
+
+article.kart {
+  background-color: white;
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+  border: 1px solid #ddd;
+}
+
+article.kart a {
+  color: var(--renk-ana);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Form Tasarımları */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  padding: var(--bosluk-m);
+}
+
+input, select, textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Hatalı/Boş Alan Uyarısı */
+input.hata, textarea.hata {
+  border: 1px solid red;
+  background-color: #ffe6e6;
+}
+
+button {
+  background-color: var(--renk-ana);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: var(--kose);
+  cursor: pointer;
+}
+
+/* Geniş Ekran / Masaüstü (Responsive) */
+@media (min-width: 768px) {
+  section.etkinlikler {
+    grid-template-columns: repeat(3, 1fr); /* Bilgisayarda 3 sütun */
+  }
+}
