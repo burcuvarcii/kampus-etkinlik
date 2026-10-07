@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <script type="module" src="js/event-list.js"></script>
-  <meta charset="UTF-8">
-  <title>Etkinlikler</title>
-  <link rel="stylesheet" href="css/2311012043.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="js/event-list.js"></script>
+    <meta charset="UTF-8">
+    <title>Etkinlikler</title>
+    <link rel="stylesheet" href="css/2311012043.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <header>
-    <h1>Kampüs Etkinlikleri</h1>
-    <nav>
-      <a href="index.html">Ana Sayfa</a> | 
-      <a href="etkinlikler.html">Etkinlikler</a> | 
-      <a href="etkinlik-detay.html">Detay</a> | 
-      <a href="etkinlik-ekle.html">Ekle</a> | 
-    
-    </nav>
-  </header>
+    <header>
+        <h1>Kampüs Etkinlikleri</h1>
+        <nav>
+            <a href="index.html">Ana Sayfa</a> |
+            <a href="etkinlikler.html">Etkinlikler</a> |
+            <a href="etkinlik-ekle.html">Ekle</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Tüm Etkinlikler</h1>
 
-   <main>
-  <form id="filtre-formu" class="filtre">
-  <label for="arama">Etkinlik ara</label>
-  <input type="search" id="arama" placeholder="Örn. atölye, kariyer..." />
+        <form id="filtre-formu" class="filtre">
+            <label for="arama">Etkinlik ara</label>
+            <input type="search" id="arama" placeholder="Örn. atölye, kariyer..." />
 
-  <label for="kategori-filtre">Kategori</label>
-  <select id="kategori-filtre">
-    <option value="">Tümü</option>
-  </select>
-</form>
+            <label for="kategori-filtre">Kategori</label>
+            <select id="kategori-filtre">
+                <option value="">Tümü</option>
+            </select>
+        </form>
 
-<p id="sonuc"></p>
+        <p id="sonuc"></p>
 
-<section id="etkinlik-listesi" class="etkinlik-listesi"></section>
-</main>
-
-  <footer>
-    <p>Ad Soyad - Öğrenci No - 2026</p>
-  </footer>
+        <section id="etkinlik-listesi" class="etkinlik-listesi"></section>
+    </main>
+    <footer>
+        <p>Ad Soyad - 2311012043 - 2026</p>
+    </footer>
 </body>
 </html>
