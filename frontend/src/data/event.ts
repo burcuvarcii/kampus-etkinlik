@@ -40,5 +40,25 @@ export const events: CampusEvent[] = [
     time: "09:00",
     location: "Mühendislik Fakültesi",
     description: "24 saatlik kodlama maratonu."
+  },
+  {
+    id: "event-5",
+    title: "Web Tasarım Atölyesi",
+    category: "Atölye",
+    date: "2026-11-25",
+    time: "14:00",
+    location: "Lab 1",
+    capacity: 30,
+    description: "HTML ve CSS ile ilk kişisel sayfam yapımı.",
+  },
+  {
+    id: "event-6",
+    title: "Siber Güvenlik Semineri",
+    category: "Seminer",
+    date: "2026-11-28",
+    time: "11:00",
+    location: "Mavi Salon",
+    capacity: 100,
+    description: "Güncel siber tehditler ve korunma yolları.",
   }
 ];
