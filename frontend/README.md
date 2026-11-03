@@ -1,32 +1,54 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# Kampüs Etkinlikleri - Sprint 6 & Vize Projesi
 
-Currently, two official plugins are available:
+Bu proje, üniversite kampüsündeki etkinliklerin listelendiği, detaylarının incelendiği, yönetildiği (ekleme, silme, güncelleme) ve kullanıcı giriş/kayıt işlemlerini içeren tek sayfalık bir web uygulamasıdır (SPA).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🌐 Canlı Yayın (Vercel)
+* **Canlı Demo Adresi:** [https://burcuvarci-frontend.vercel.app](https://burcuvarci-frontend.vercel.app)  
+*(Not: Projenizi Vercel'e yüklediğinizde kendi Vercel linkinizi buraya yazabilirsiniz)*
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## 🚀 Kurulum ve Çalıştırma
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları izleyin:
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+# 1. Gerekli paketleri yükleyin
+npm install
+
+# 2. Geliştirici sunucusunu başlatın
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Tarayıcınızda açmak için terminalde verilen adrese (varsayılan: `http://localhost:5173/` veya `http://localhost:5175/`) gidin.
+
+---
+
+## 🧭 Route (Sayfa) Listesi
+
+Uygulamada **10 adres ve 10 sayfa** React Router ile yapılandırılmıştır:
+
+| Adres | Sayfa Bileşeni | Açıklama |
+| :--- | :--- | :--- |
+| `/` | `HomePage` | Yaklaşan 2 etkinliği ve genel bilgileri gösterir. |
+| `/events` | `EventsPage` | Tüm etkinliklerin listelendiği, arama ve kategori filtresi yapılan sayfa. |
+| `/events/:id` | `EventDetailPage` | Seçilen etkinliğin detaylarını gösterir (`/events/event-1`). |
+| `/login` | `LoginPage` | Kullanıcı giriş formu. |
+| `/register` | `RegisterPage` | Yeni kullanıcı kayıt formu (şifre tekrarı kontrolü içerir). |
+| `/forgot-password` | `ForgotPasswordPage` | Şifre sıfırlama talep sayfası. |
+| `/admin` | `AdminPage` | Etkinliklerin listelendiği, silindiği ve düzenlemeye yönlendiren yönetim tablosu. |
+| `/admin/new` | `AddEventPage` | Yeni etkinlik ekleme formu (doğrulama kuralları içerir). |
+| `/admin/:id/edit` | `EditEventPage` | Mevcut bir etkinliği güncelleme formu. |
+| `*` | `NotFoundPage` | Tanımsız rotalar için 404 "Sayfa bulunamadı" ekranı. |
+
+---
+
+## 🛠️ Kullanılan Teknolojiler
+* **React** (TypeScript ile)
+* **Vite** (Hızlı derleme aracı)
+* **React Router Dom** (İstemci taraflı sayfa yönlendirmesi)
+* **React Context API** (Global state & CRUD yönetimi)
