@@ -1,28 +1,24 @@
+import { Link } from "react-router-dom";
 import type { CampusEvent } from "../../types/campus-event";
 import { formatDate } from "../../utils/format-date";
 
-interface EventCardProps {
+interface Props {
   event: CampusEvent;
-  onShowDetail: (id: string) => void;
 }
 
-export function EventCard({ event, onShowDetail }: EventCardProps) {
+export default function EventCard({ event }: Props) {
   return (
-    <div className="kart">
-      {event.image && (
-        <img src={event.image} alt={event.title} className="kart-gorsel" />
-      )}
+    <article className="kart">
+      {event.image && <img src={event.image} alt={event.title} className="kart-resim" />}
       <div className="kart-icerik">
-        <span className="kategori">{event.category}</span>
-        <h2>{event.title}</h2>
-        <p><strong>Tarih:</strong> {formatDate(event.date)} - {event.time}</p>
-        <p><strong>Yer:</strong> {event.location}</p>
-        <p><strong>Kontenjan:</strong> {event.capacity} kişi</p>
-        <p className="aciklama-ozet">{event.description}</p>
-        <button className="link-btn" onClick={() => onShowDetail(event.id)}>
+        <span className="kart-kategori">{event.category}</span>
+        <h3 className="kart-baslik">{event.title}</h3>
+        <p className="kart-tarih">{formatDate(event.date)} - {event.time}</p>
+        <p className="kart-yer">{event.location}</p>
+        <Link to={`/events/${event.id}`} className="buton">
           Detayları gör
-        </button>
+        </Link>
       </div>
-    </div>
+    </article>
   );
 }

@@ -1,4 +1,14 @@
 /* Ad Soyad - 2311012043 */
+/* Tablo ve Yönetim Stilleri (Adım 13) */
+:root {
+  --primary-green: #719b25;
+  --dark-green: #486616;
+  --bg-light: #f7f9f2;
+  --badge-bg: #eef5df;
+  --badge-text: #486616;
+  --card-border: #719b25;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,207 +16,172 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f4f7f4;
-  color: #222;
+  font-family: Georgia, "Times New Roman", serif;
+  background-color: var(--bg-light);
+  color: #2c3e50;
   line-height: 1.5;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
-/* Header & Yeşil Menü */
+/* --- HEADER & NAVIGATION --- */
 header {
-  background-color: #2e7d32;
+  background-color: var(--primary-green);
+  padding: 1.5rem 3rem;
   color: white;
-  padding: 18px 24px;
 }
 
 header h1 {
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 4px;
+  font-size: 2.2rem;
+  font-weight: normal;
+  margin-bottom: 0.3rem;
 }
 
 header p {
-  font-size: 0.85rem;
-  opacity: 0.95;
-  margin-bottom: 14px;
+  font-size: 0.95rem;
+  color: #f0f7e6;
+  margin-bottom: 1.2rem;
 }
 
-nav {
+.navigasyon .nav-liste {
   display: flex;
-  gap: 8px;
+  list-style: none;
+  gap: 0.8rem;
 }
 
-nav a {
+.navigasyon .nav-liste a {
   color: white;
   text-decoration: none;
-  padding: 6px 14px;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-/* Aktif Beyaz Buton */
-nav a.active,
-nav a[aria-current="page"] {
-  background-color: white;
-  color: #1b5e20;
-  font-weight: bold;
-}
-
-/* Main İçerik Alanı (Genişlik artırıldı) */
-main {
-  max-width: 960px;
-  width: 100%;
-  margin: 20px auto;
-  padding: 0 20px;
-  flex: 1;
-}
-
-main h1 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 14px;
-  color: #111;
-  border-bottom: 2px solid #2e7d32;
-  padding-bottom: 4px;
-}
-
-/* Filtreleme Formu (Yan Yana Düzen) */
-.filtre {
-  background: white;
-  padding: 16px;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  margin-bottom: 16px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 16px;
-  align-items: end;
-}
-
-@media (max-width: 600px) {
-  .filtre {
-    grid-template-columns: 1fr;
-  }
-}
-
-.filtre-grup {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.filtre label {
-  font-size: 0.82rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.filtre input,
-.filtre select {
-  width: 100%;
-  padding: 8px 10px;
-  border: 1px solid #ccc;
+  padding: 6px 16px;
   border-radius: 6px;
-  font-size: 0.88rem;
+  font-size: 0.95rem;
 }
 
-.sonuc-yazisi, #sonuc {
-  font-size: 0.85rem;
+.navigasyon .nav-liste a.active {
+  background-color: white;
+  color: var(--dark-green);
   font-weight: bold;
-  color: #2e7d32;
-  margin-bottom: 14px;
 }
 
-/* Etkinlik Kartları (Görseldeki Gibi YAN YANA 2 SÜTUN KARE DÜZEN) */
+/* --- ANA KONTANER --- */
+main {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: #1a252f;
+  margin-bottom: 1.5rem;
+}
+
+/* --- ETKİNLİK KARTLARI (GRID/FLEX) --- */
 .etkinlik-listesi {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1rem));
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
-@media (max-width: 640px) {
-  .etkinlik-listesi {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Kart Yapısı */
+/* Kartın Kendisi */
 .kart {
-  background: white;
-  border: 1px solid #e0e0e0;
+  background-color: white;
+  border: 1px solid #e2e8d5;
+  border-top: 5px solid var(--card-border);
   border-radius: 8px;
-  padding: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  gap: 0.6rem;
 }
 
-.kart h2 {
-  font-size: 1.05rem;
-  color: #111;
+.kart-baslik {
+  font-size: 1.3rem;
   font-weight: bold;
+  color: #1a252f;
+  margin-bottom: 0.2rem;
 }
 
-.kart .kategori {
+.kart-kategori {
   display: inline-block;
-  background-color: #e8f5e9;
-  color: #2e7d32;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 4px;
-  width: fit-content;
+  align-self: flex-start;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .kart p {
-  font-size: 0.85rem;
-  color: #444;
+  font-size: 0.95rem;
+  color: #4a5568;
 }
 
-.kart a, .buton {
-  color: #2e7d32;
+.kart a.buton, .kart .detay-link {
+  color: var(--dark-green);
+  text-decoration: underline;
   font-weight: bold;
-  text-decoration: none;
-  font-size: 0.85rem;
-  margin-top: auto;
-  padding-top: 6px;
+  margin-top: 0.5rem;
   display: inline-block;
 }
 
-.kart a:hover {
-  text-decoration: underline;
+/* --- "TÜM ETKİNLİKLERİ GÖR" BUTONU --- */
+.tum-etkinlikler-container {
+  text-align: center;
+  margin-top: 2rem;
 }
 
-/* Ana Sayfadaki "Tüm etkinlikleri gör" Butonu */
-.ana-sayfa-buton {
-  margin-top: 20px;
-}
-
-.ana-sayfa-buton a {
-  background-color: #2e7d32;
+.btn-main, a.tum-etkinlikler-btn {
+  display: inline-block;
+  background-color: var(--dark-green);
   color: white !important;
-  padding: 10px 18px;
+  padding: 10px 24px;
+  border-radius: 6px;
+  text-decoration: none !important;
+  font-weight: bold;
+}
+
+/* --- YÖNETİM TABLOSU --- */
+.btn-yeni {
+  background-color: var(--dark-green);
+  color: white;
+  padding: 8px 16px;
   border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 0.85rem;
   display: inline-block;
+  margin-bottom: 1rem;
 }
 
-.ana-sayfa-buton a:hover {
-  background-color: #1b5e20;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-/* Footer */
+th {
+  background-color: var(--primary-green);
+  color: white;
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: bold;
+}
+
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+/* --- FOOTER --- */
 footer {
   text-align: center;
-  padding: 16px;
-  font-size: 0.78rem;
-  color: #777;
-  margin-top: auto;
+  padding: 2.5rem;
+  color: #718096;
+  font-size: 0.85rem;
+  margin-top: 3rem;
 }
