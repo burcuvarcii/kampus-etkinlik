@@ -6,7 +6,7 @@
   },
   "item": [
     {
-      "name": "GET /health",
+      "name": "1 Health",
       "request": {
         "method": "GET",
         "header": [],
@@ -25,7 +25,7 @@
       "response": []
     },
     {
-      "name": "GET /events",
+      "name": "2 Etkinlik listesi",
       "request": {
         "method": "GET",
         "header": [],
@@ -44,12 +44,12 @@
       "response": []
     },
     {
-      "name": "GET /events/6afd531f374ce7489c02ad7d",
+      "name": "3 Tek etkinlik",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3000/events/6afd531f374ce7489c02ad7d",
+          "raw": "http://localhost:3000/events/6ad57fce53e43a0dbc80ecdd",
           "protocol": "http",
           "host": [
             "localhost"
@@ -57,19 +57,19 @@
           "port": "3000",
           "path": [
             "events",
-            "6afd531f374ce7489c02ad7d"
+            "6ad57fce53e43a0dbc80ecdd"
           ]
         }
       },
       "response": []
     },
     {
-      "name": "GET /events/yok",
+      "name": "4 Olmayan etkinlik (404)",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3000/events/yok",
+          "raw": "http://localhost:3000/events/111111",
           "protocol": "http",
           "host": [
             "localhost"
@@ -77,14 +77,14 @@
           "port": "3000",
           "path": [
             "events",
-            "yok"
+            "111111"
           ]
         }
       },
       "response": []
     },
     {
-      "name": "POST /events (tam body)",
+      "name": "5 Etkinlik oluştur (201)",
       "request": {
         "method": "POST",
         "header": [
@@ -95,7 +95,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"title\": \"Git Atölyesi\",\n  \"category\": \"Atölye\",\n  \"date\": \"2026-12-10\",\n  \"capacity\": 30,\n  \"time\": \"15:00\",\n  \"location\": \"Bilgisayar Laboratuvarı 2\",\n  \"description\": \"Git ve GitHub ile ilk adımlar.\"\n}",
+          "raw": "{\n  \"title\": \"Git Atölyesi\",\n  \"category\": \"Atölye\",\n  \"date\": \"2026-12-01\",\n  \"time\": \"14:00\",\n  \"location\": \"Bilgisayar Laboratuvarı 1\",\n  \"capacity\": 30,\n  \"description\": \"Git ve GitHub ile ilk adımlar.\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -117,7 +117,7 @@
       "response": []
     },
     {
-      "name": "POST /events (sadece title)",
+      "name": "6 Eksik veri (400)",
       "request": {
         "method": "POST",
         "header": [
@@ -128,7 +128,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"title\": \"Eksik Veri Testi\"\n}",
+          "raw": "{\n  \"title\": \"Git Atölyesi\"\n}",
           "options": {
             "raw": {
               "language": "json"

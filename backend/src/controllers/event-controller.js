@@ -25,6 +25,10 @@ export async function getEventById(req, res, next) {
     }
     res.json(event);
   } catch (err) {
+    if (err.name === "CastError") {
+      return res.status(404)
+        .json({ error: { message: "Event not found" } });
+    }
     next(err);
   }
 }
@@ -34,7 +38,7 @@ export async function createEvent(req, res, next) {
     const event = await Event.create(req.body ?? {});
     res.status(201).json(event);
   } catch (err) {
-    if (err.name === "ValidationError") {
+    if (err.name === "ValidationError" || err.name === "CastError") {
       return res.status(400)
         .json({ error: { message: err.message } });
     }

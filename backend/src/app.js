@@ -23,6 +23,9 @@ app.use((req, res) => {
 });
 
 app.use((err, req, res, next) => {
+  if (err.status === 400 || (err instanceof SyntaxError && "body" in err)) {
+    return res.status(400).json({ error: { message: err.message } });
+  }
   // hata yakalayıcı
   console.error(err.message);
   res.status(500).json({ error: { message: "Server error" } });
