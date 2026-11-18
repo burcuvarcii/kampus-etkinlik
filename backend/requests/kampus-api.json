@@ -44,12 +44,12 @@
       "response": []
     },
     {
-      "name": "GET /events/event-2",
+      "name": "GET /events/6afd531f374ce7489c02ad7d",
       "request": {
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3000/events/event-2",
+          "raw": "http://localhost:3000/events/6afd531f374ce7489c02ad7d",
           "protocol": "http",
           "host": [
             "localhost"
@@ -57,7 +57,7 @@
           "port": "3000",
           "path": [
             "events",
-            "event-2"
+            "6afd531f374ce7489c02ad7d"
           ]
         }
       },
@@ -95,7 +95,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"title\": \"Git Atölyesi\",\n  \"category\": \"Atölye\",\n  \"date\": \"2026-12-01\",\n  \"capacity\": 30,\n  \"time\": \"14:00\",\n  \"location\": \"Bilgisayar Laboratuvarı 1\",\n  \"description\": \"Git ve GitHub ile CV'nize katkı...\"\n}",
+          "raw": "{\n  \"title\": \"Git Atölyesi\",\n  \"category\": \"Atölye\",\n  \"date\": \"2026-12-10\",\n  \"capacity\": 30,\n  \"time\": \"15:00\",\n  \"location\": \"Bilgisayar Laboratuvarı 2\",\n  \"description\": \"Git ve GitHub ile ilk adımlar.\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -128,7 +128,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"title\": \"Git Atölyesi\"\n}",
+          "raw": "{\n  \"title\": \"Eksik Veri Testi\"\n}",
           "options": {
             "raw": {
               "language": "json"

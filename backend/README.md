@@ -1,18 +1,21 @@
-# Kampüs API - Backend (Sprint 7)
+# Kampüs API - Backend (Sprint 8)
 
-Express.js ile geliştirilmiş Kampüs Etkinlikleri REST API uygulaması.
+Express.js ve Mongoose / MongoDB ile geliştirilmiş Kampüs Etkinlikleri REST API uygulaması.
 
 ---
 
 ## 🚀 Kurulum ve Çalıştırma
 
-Projeyi yerel ortamda çalıştırmak için aşağıdaki komutları izleyin:
+Projeyi yerel ortamda çalıştırmak için aşağıdaki adımları izleyin:
 
 ```bash
 # 1. Bağımlılıkları yükleyin
 npm install
 
-# 2. Geliştirici sunucusunu (otomatik yeniden başlatma ile) çalıştırın
+# 2. Örnek veritabanı verilerini yükleyin (Seed)
+npm run seed
+
+# 3. Geliştirici sunucusunu çalıştırın
 npm run dev
 
 # veya normal başlatma için
@@ -23,16 +26,17 @@ Sunucu varsayılan olarak `http://localhost:3000` adresinde çalışır.
 
 ---
 
-## ⚙️ Ortam Değişkenleri (PORT)
+## ⚙️ Ortam Değişkenleri (.env)
 
-Sunucu port yapılandırmasını `.env` dosyasından okur:
+Sunucu ve veritabanı yapılandırmasını `.env` dosyasından okur:
 
 ```env
 PORT=3000
+MONGODB_URI=mongodb://127.0.0.1:27017/kampus
 ```
 
-- `.env.example` dosyası repoda yer alır ve örnek yapılandırmayı içerir.
-- `.env` dosyası gizli tutulur ve `.gitignore` ile korunur.
+- `.env.example` dosyası repoda yer alır ve örnek yapılandırmayı (yer tutucu) içerir.
+- `.env` dosyası gizli tutulur ve `.gitignore` ile korunur (asla repoya commit edilmez).
 
 ---
 
@@ -40,9 +44,9 @@ PORT=3000
 
 | Method | Endpoint | Amaç | Başarılı | Hata | Durum |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **GET** | `/events` | Listeyi getir | 200 | — | Bu sprint |
-| **GET** | `/events/:id` | Tek etkinlik | 200 | 404 | Bu sprint |
-| **POST** | `/events` | Yeni etkinlik | 201 | 400 | Bu sprint |
+| **GET** | `/events` | Listeyi getir | 200 | — | Tamamlandı |
+| **GET** | `/events/:id` | Tek etkinlik | 200 | 404 | Tamamlandı |
+| **POST** | `/events` | Yeni etkinlik | 201 | 400 | Tamamlandı |
 | **PATCH** | `/events/:id` | Güncelle | 200 | 400, 404 | Sprint 9 |
 | **DELETE** | `/events/:id` | Sil | 204 | 404 | Sprint 9 |
 
@@ -50,11 +54,11 @@ PORT=3000
 - **GET** `/health` : Sunucunun çalışır durumda olduğunu ve öğrenci numarasını doğrular. (Status: `200 OK`)
 
 ### Durum Kodları (Status Codes)
-- **200 Tamam**: İstek başarılı oldu.
-- **201 Oluşturuldu**: Yeni etkinlik başarıyla eklendi.
-- **204 İçerik Yok**: Başarılı işlem sonrası içerik dönmüyor.
-- **400 Eksik/Yanlış Veri**: Gerekli alanlar eksik (`title`, `category`, `date`).
-- **404 Bulunamadı**: Belirtilen etkinlik veya route bulunamadı.
+- **200 OK**: İstek başarılı oldu.
+- **201 Created**: Yeni etkinlik başarıyla eklendi.
+- **400 Bad Request**: Mongoose şema doğrulama hatası (ValidationError).
+- **404 Not Found**: Belirtilen ID'ye sahip etkinlik veya route bulunamadı.
+- **500 Internal Server Error**: Beklenmeyen sunucu hatası.
 
 ### Hata Yanıt Formatı
 Tüm hata yanıtları standart formatta döner:
