@@ -1,6 +1,5 @@
-export const events = [
+export const seedEvents = [
   {
-    id: "event-1",
     title: "Yazılım Kariyer Zirvesi 2026",
     category: "Seminer",
     capacity: 120,
@@ -10,7 +9,6 @@ export const events = [
     description: "Teknoloji dünyasının önde gelen mühendisleri ile kariyer planlama söyleşisi."
   },
   {
-    id: "event-2",
     title: "React ve Modern Web Atölyesi",
     category: "Atölye",
     capacity: 35,
@@ -20,7 +18,6 @@ export const events = [
     description: "React bileşenleri, state yönetimi ve modern frontend mimarileri uygulamalı eğitimi."
   },
   {
-    id: "event-3",
     title: "Yapay Zeka ve Büyük Veri Paneli",
     category: "Seminer",
     capacity: 80,
@@ -30,7 +27,6 @@ export const events = [
     description: "Büyük dil modelleri ve veri analitiğinde güncel yaklaşımların değerlendirilmesi."
   },
   {
-    id: "event-4",
     title: "Kampüs Kod Maratonu Hackathon",
     category: "Yarışma",
     capacity: 60,
@@ -40,7 +36,6 @@ export const events = [
     description: "24 saat boyunca yenilikçi çözümler üretilecek takım kodlama maratonu."
   },
   {
-    id: "event-5",
     title: "Mobil Uygulama Geliştirme Atölyesi",
     category: "Atölye",
     capacity: 30,
@@ -50,7 +45,6 @@ export const events = [
     description: "Mobil dünyada kullanıcı deneyimi ve arayüz geliştirme temelleri."
   },
   {
-    id: "event-6",
     title: "Siber Güvenlik ve Ağ Savunması Semineri",
     category: "Seminer",
     capacity: 100,
