@@ -1,4 +1,4 @@
-# Kampüs API - Backend (Sprint 8)
+# Kampüs API - Backend (Sprint 9)
 
 Express.js ve Mongoose / MongoDB ile geliştirilmiş Kampüs Etkinlikleri REST API uygulaması.
 
@@ -44,19 +44,23 @@ MONGODB_URI=mongodb://127.0.0.1:27017/kampus
 
 | Method | Endpoint | Amaç | Başarılı | Hata | Durum |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **GET** | `/events` | Listeyi getir | 200 | — | Tamamlandı |
-| **GET** | `/events/:id` | Tek etkinlik | 200 | 404 | Tamamlandı |
-| **POST** | `/events` | Yeni etkinlik | 201 | 400 | Tamamlandı |
-| **PATCH** | `/events/:id` | Güncelle | 200 | 400, 404 | Sprint 9 |
-| **DELETE** | `/events/:id` | Sil | 204 | 404 | Sprint 9 |
+| **GET** | `/health` | Sunucu durumu | 200 | — | çalışıyor |
+| **GET** | `/events ?search= & ?category=` | Listele, ara ve filtrele | 200 | — | çalışıyor |
+| **GET** | `/events/upcoming` | Yaklaşan etkinlikler (tarihe göre sıralı) | 200 | — | çalışıyor |
+| **GET** | `/events/:id` | Tek etkinlik | 200 | 404 | çalışıyor |
+| **POST** | `/events` | Yeni etkinlik | 201 | 400 | çalışıyor |
+| **PATCH** | `/events/:id` | Güncelle (güncel kayıt döner) | 200 | 400, 404 | çalışıyor |
+| **DELETE** | `/events/:id` | Sil (gövde yok) | 204 | 404 | çalışıyor |
 
-### Health Check Endpoint
-- **GET** `/health` : Sunucunun çalışır durumda olduğunu ve öğrenci numarasını doğrular. (Status: `200 OK`)
+### Notlar
+- Tarih alanı tüm API istek ve yanıtlarında `"GG-AA-YYYY"` biçimindedir (ör. `"15-10-2026"`).
+- Geçersiz veya bulunamayan `:id` tüm tekil endpoint'lerde `404` döndürür.
 
 ### Durum Kodları (Status Codes)
 - **200 OK**: İstek başarılı oldu.
 - **201 Created**: Yeni etkinlik başarıyla eklendi.
-- **400 Bad Request**: Mongoose şema doğrulama hatası (ValidationError).
+- **204 No Content**: Etkinlik başarıyla silindi (yanıt gövdesi yok).
+- **400 Bad Request**: Doğrulama, tarih biçimi, boş gövde veya korumalı alan hatası.
 - **404 Not Found**: Belirtilen ID'ye sahip etkinlik veya route bulunamadı.
 - **500 Internal Server Error**: Beklenmeyen sunucu hatası.
 
